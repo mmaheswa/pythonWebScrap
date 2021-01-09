@@ -129,7 +129,7 @@ def getAllHrefLinks(soupContent,linkPathPrefix,findFromContent = False):
 
     newList = list(dict.fromkeys(newList))
     return newList
-
+# It will return href value from the dom.
 def getHrefText(link):
     if(link):
         link.get('href')
@@ -139,3 +139,8 @@ def getHrefText(link):
 def writeResultsToCSV(pageData,fileName):
     df = pd.DataFrame(pageData)
     df.to_csv(fileName ,mode='a', encoding='utf-8', index=False,header=False)
+
+# Remove specfic html tag from the dom.
+def removeDomElement(pageData,tagName):
+    pageData.tagName.decompose()
+
